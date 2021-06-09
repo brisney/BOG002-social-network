@@ -1,7 +1,7 @@
 import { guardarPost } from '../firebase/firebaseStorage.js';
 
 export function vistaPost() {
-  const viewsPost = `
+    const viewsPost = `
     <form id="formPost">
     <div>
     <input type="text" id="postTitle" placeholder="titulo publicacion" autofocus>
@@ -15,49 +15,93 @@ export function vistaPost() {
     </div>
     `;
 
-  const formPost = document.createElement('div');
-  formPost.innerHTML = viewsPost;
-  return formPost;
+    const formPost = document.createElement('div');
+    formPost.innerHTML = viewsPost;
+    return formPost;
 }
 
-export function eventoGuardarPost() {
-  const formPost = document.getElementById('formPost');
-  // const contenedorPost = document.getElementById('contenedorPost');
+export function postEvento() {
+    const formPost = document.getElementById("formPost");
+    const contenedorPost = document.getElementById("contenedorPost");
 
-  formPost.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    // Se guarda el elemento en las constantes
-    const title = document.getElementById('postTitle');
-    const description = document.getElementById('postDescription');
+    const db = firebase.firestore();
+    // Función que guarda una publicación y retorna una promesa
+    const guardarPost = (title, description) =>
+        db.collection("Publicaciones").doc().set({
+            title,
+            description,
+        });
 
-    // Utiliza la función para guardar publicacion
-    await eventoGuardarPost(title.value, description.value);
-    formPost.reset();
-    title.focus();
-    guardarPost(title.trim(), description.trim());
+    // Función obtener publicaciones
 
-    // console.log(title, description);
-    // console.log('Enviando...');
-  });
-}
+    const getPublicaciones = () => db.collection("Publicaciones").get();
+    window.addEventListener("DOMContentLoaded", async(e) => {
+        e.preventDefault();
+        const querySnapshot = await getPublicaciones();
+
+        querySnapshot.forEach((doc) => {
+            console.log(doc.data());
+            //   contenedorPost.innerHTML += `
+            //   <div>
+            //   ${doc.data().title}
+            //   </div>
+            //   `;
+        });
+    });
+
+    export function eventoGuardarPost() {
+
+        const formPost = document.getElementById('formPost');
+        //const contenedorPost = document.getElementById('contenedorPost');
+
+        formPost.addEventListener('submit', async(e) => {
+            e.preventDefault();
+            // Se guarda el elemento en las constantes
+            const title = document.getElementById('postTitle');
+            const description = document.getElementById('postDescription');
+
+            // Utiliza la función para guardar publicacion
+            await eventoGuardarPost(title.value, description.value);
+            formPost.reset();
+            title.focus();
+            guardarPost(title, description);
+
+            console.log(title, description);
+            // console.log('Enviando...');
+        });
+
+        formPost.addEventListener("submit", async(e) => {
+            e.preventDefault();
+            // Se guarda el elemento en las constantes
+            const title = document.getElementById("postTitle");
+            const description = document.getElementById("postDescription");
+
+            // Utiliza la función para guardar publicacion
+            await eventoGuardarPost(title.value, description.value);
+            formPost.reset();
+            title.focus();
+            guardarPost(title.trim(), description.trim());
+
+            // console.log(title, description);
+            // console.log('Enviando...');
+        });
+    }
 
 
-//   // Función obtener publicaciones
-  
-//   const getPublicaciones = () =>
-//     db.collection('Publicaciones').get();
-//   window.addEventListener('DOMContentLoaded', async (e) => {
-//     e.preventDefault();
-//     const querySnapshot = await getPublicaciones();
+    //   // Función obtener publicaciones
 
-//     querySnapshot.forEach((doc) => {
-//       console.log(doc.data());
-//       contenedorPost.innerHTML += `
-//       <div>
-//       ${doc.data().title}
-//       </div>
-//       `;
-//     });
-//   });
+    //   const getPublicaciones = () =>
+    //     db.collection('Publicaciones').get();
+    //   window.addEventListener('DOMContentLoaded', async (e) => {
+    //     e.preventDefault();
+    //     const querySnapshot = await getPublicaciones();
 
-
+    //     querySnapshot.forEach((doc) => {
+    //       console.log(doc.data());
+    //       contenedorPost.innerHTML += `
+    //       <div>
+    //       ${doc.data().title}
+    //       </div>
+    //       `;
+    //     });
+    //   });

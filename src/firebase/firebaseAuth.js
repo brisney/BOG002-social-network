@@ -1,43 +1,34 @@
+// registro con email
+
 export const registroUsuario = (correo, contrasena) => {
     console.log(correo, contrasena);
     firebase.auth().createUserWithEmailAndPassword(correo, contrasena)
         .then((userCredential) => {
-            // Signed in
-            console.log('Usuario registrado', userCredential.user);
-            // ...
+            console.log('registrado', userCredential);
         })
         .catch((error) => {
             console.log('error', error.message);
-            // ..
         });
 };
+
+// Login con email
 export const loginUsuario = (correo, contrasena) => {
     console.log(correo, contrasena);
     firebase.auth().signInWithEmailAndPassword(correo, contrasena)
         .then((userCredential) => {
             // Signed in
-            console.log('Usuario logueado', userCredential.user);
-            // ...
+            console.log('logueado', userCredential);
         })
         .catch((error) => {
-            console.log('error', error.message);
+            console.log('error', error);
         });
 };
-
-export const logoutUsuario = (correo, contrasena) => {
-    console.log(correo, contrasena);
-    firebase.auth().sigOut()
-        .then(() => {
-            console.log('Sesion Cerrada');
-        });
-};
-
 
 // logeandonos con google
 export function loginGoogle() {
     const googleButton = document.getElementById('googleLogin');
     googleButton.addEventListener('click', () => {
-        let provider = new firebase.auth.GoogleAuthProvider();
+        const provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
                 console.log(result);
@@ -52,8 +43,8 @@ export function loginGoogle() {
 // logeamos con Facebook
 export function loginFacebook() {
     const facebookButton = document.getElementById('facebookLogin');
-    facebookButton.addEventListener('click', (e) => {
-        e.preventDefault();
+    facebookButton.addEventListener('click', () => {
+        //e.preventDefault();
         const provider = new firebase.auth.FacebookAuthProvider();
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
