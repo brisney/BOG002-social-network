@@ -1,7 +1,7 @@
 import { guardarPost } from '../firebase/firebaseStorage.js';
 
 export function vistaPost() {
-  const viewsPost = `
+    const viewsPost = `
     <form id="formPost">
     <div>
     <input type="text" id="postTitle" placeholder="titulo publicacion" autofocus>
@@ -15,35 +15,35 @@ export function vistaPost() {
     </div>
     `;
 
-  const formPost = document.createElement('div');
-  formPost.innerHTML = viewsPost;
-  return formPost;
+    const formPost = document.createElement('div');
+    formPost.innerHTML = viewsPost;
+    return formPost;
 }
 
 export function eventoGuardarPost() {
-  const formPost = document.getElementById('formPost');
-  // const contenedorPost = document.getElementById('contenedorPost');
+    const formPost = document.getElementById('formPost');
+    //const contenedorPost = document.getElementById('contenedorPost');
 
-  formPost.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    // Se guarda el elemento en las constantes
-    const title = document.getElementById('postTitle');
-    const description = document.getElementById('postDescription');
+    formPost.addEventListener('submit', async(e) => {
+        e.preventDefault();
+        // Se guarda el elemento en las constantes
+        const title = document.getElementById('postTitle');
+        const description = document.getElementById('postDescription');
 
-    // Utiliza la función para guardar publicacion
-    await eventoGuardarPost(title.value, description.value);
-    formPost.reset();
-    title.focus();
-    guardarPost(title.trim(), description.trim());
+        // Utiliza la función para guardar publicacion
+        await eventoGuardarPost(title.value, description.value);
+        formPost.reset();
+        title.focus();
+        guardarPost(title, description);
 
-    // console.log(title, description);
-    // console.log('Enviando...');
-  });
+        console.log(title, description);
+        // console.log('Enviando...');
+    });
 }
 
 
 //   // Función obtener publicaciones
-  
+
 //   const getPublicaciones = () =>
 //     db.collection('Publicaciones').get();
 //   window.addEventListener('DOMContentLoaded', async (e) => {
@@ -59,5 +59,3 @@ export function eventoGuardarPost() {
 //       `;
 //     });
 //   });
-
-
