@@ -12,4 +12,4 @@ export function vistaHome() {
     const elementoHome = document.createElement('div');
     elementoHome.innerHTML = viewHome;
     return elementoHome;
-};
+}

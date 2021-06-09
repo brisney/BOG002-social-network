@@ -2,7 +2,6 @@ import { registroUsuario } from '../firebase/firebaseAuth.js';
 
 export function vistaRegistro() {
     const viewRegistro = `
-
     <div class="container-registro">
     <h2 class="registro">Bienvenid@s a Universo Marvel</h2>
       <form id="formRegistro">

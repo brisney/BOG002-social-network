@@ -2,25 +2,43 @@
 
 export const registroUsuario = (correo, contrasena) => {
     console.log(correo, contrasena);
-    firebase.auth().createUserWithEmailAndPassword(correo, contrasena)
+    firebase
+        .auth()
+        .createUserWithEmailAndPassword(correo, contrasena)
         .then((userCredential) => {
-            console.log('registrado', userCredential);
+            // Signed in
+            console.log('Usuario registrado', userCredential.user);
+            // ...
         })
         .catch((error) => {
             console.log('error', error.message);
+            // ..
         });
 };
 
 // Login con email
 export const loginUsuario = (correo, contrasena) => {
     console.log(correo, contrasena);
-    firebase.auth().signInWithEmailAndPassword(correo, contrasena)
+    firebase
+        .auth()
+        .signInWithEmailAndPassword(correo, contrasena)
         .then((userCredential) => {
             // Signed in
-            console.log('logueado', userCredential);
+            console.log('Usuario logueado', userCredential.user);
+            // ...
         })
         .catch((error) => {
-            console.log('error', error);
+            console.log('error', error.message);
+        });
+};
+
+export const logoutUsuario = (correo, contrasena) => {
+    console.log(correo, contrasena);
+    firebase
+        .auth()
+        .sigOut()
+        .then(() => {
+            console.log('Sesion Cerrada');
         });
 };
 
@@ -28,8 +46,10 @@ export const loginUsuario = (correo, contrasena) => {
 export function loginGoogle() {
     const googleButton = document.getElementById('googleLogin');
     googleButton.addEventListener('click', () => {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider)
+        let provider = new firebase.auth.GoogleAuthProvider();
+        firebase
+            .auth()
+            .signInWithPopup(provider)
             .then((result) => {
                 console.log(result);
             })
@@ -39,7 +59,6 @@ export function loginGoogle() {
     });
 }
 
-
 // logeamos con Facebook
 export function loginFacebook() {
     const facebookButton = document.getElementById('facebookLogin');
@@ -48,7 +67,7 @@ export function loginFacebook() {
         const provider = new firebase.auth.FacebookAuthProvider();
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
-                console.log(result)
+                console.log(result);
                 console.log('facebook sin ing');
             })
             .catch((err) => {
