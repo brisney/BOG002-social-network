@@ -1,11 +1,10 @@
 // import { loginEvent } from '../views/login.js';
-
 import { vistaHome } from '../views/home.js';
 import { vistaRegistro, registroEvento } from '../views/registro.js';
 import { vistaLogin, loginEvento } from '../views/login.js';
 import { logoutEvento } from '../views/logout.js';
 import { loginGoogle, loginFacebook } from '../firebase/firebaseAuth.js';
-//import { vistaPost } from '../views/posts.js';
+import { vistaPost, postEvento } from '../views/posts.js';
 
 const content = document.getElementById('root');
 
@@ -17,6 +16,7 @@ const router = (route) => {
             break;
         case '#/Home':
             content.appendChild(vistaHome());
+
             break;
         case '#/Registro':
             content.appendChild(vistaRegistro());
@@ -31,12 +31,13 @@ const router = (route) => {
         case '#/logout':
             logoutEvento();
             break;
-            // case '#/post':
-            //     content.appendChild(vistaPost());
-            //     postEvento();
-            //     break;
+        case '#/post':
+            content.appendChild(vistaPost());
+            postEvento();
+            break;
         default:
             console.log('Error 404');
     }
 };
+
 export { router };
