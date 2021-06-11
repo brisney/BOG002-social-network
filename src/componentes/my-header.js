@@ -10,9 +10,9 @@ class myHeader extends HTMLElement {
         template.innerHTML = `
        <nav>
        <ul>
-        <li><a href="#home">Home</a></li>
-        <li class="cambio"><a href="#contact">Register</a></li>
-        <li class="cambio"><a class="active" href="#about">Login</a></li>
+        <li><a href="#/Home">Home</a></li>
+        <li class="cambio"><a href="#/Registro">Register</a></li>
+        <li class="cambio"><a class="active" href="#/login">Login</a></li>
       </ul>
        </nav>
        ${this.getStyle()}
