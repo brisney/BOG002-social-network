@@ -17,3 +17,9 @@ export const onGetPost = (callback) => db.collection('Publicaciones').onSnapshot
 
 // funcion que elimina las publicaciones
 export const borrarPost = (id) => db.collection('Publicaciones').doc(id).delete();
+
+// funcion  que obtiene una publicacion por id
+export const getPostbyId = (id) => db.collection('Publicaciones').doc(id).get();
+
+// funcion que actualiza con id del post y el post actualizado
+export const updatePost = (id, postActualizado) => db.collection('Publicaciones').doc(id).update(postActualizado);

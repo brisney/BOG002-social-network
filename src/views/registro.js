@@ -15,9 +15,9 @@ export function vistaRegistro() {
       </form>
       </div>
  `;
-    const elemento = document.createElement('div');
-    elemento.innerHTML = viewRegistro;
-    return elemento;
+    const formularioRegistro = document.createElement('div');
+    formularioRegistro.innerHTML = viewRegistro;
+    return formularioRegistro;
 }
 export function registroEvento() {
     const formRegistro = document.getElementById('formRegistro');

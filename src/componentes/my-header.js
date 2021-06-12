@@ -13,6 +13,8 @@ class myHeader extends HTMLElement {
         <li><a href="#/Home">Home</a></li>
         <li class="cambio"><a href="#/Registro">Register</a></li>
         <li class="cambio"><a class="active" href="#/login">Login</a></li>
+        <li class="cambio"><a class="active" href="#/logout" id="logout">Logout</a></li>
+        
       </ul>
        </nav>
        ${this.getStyle()}

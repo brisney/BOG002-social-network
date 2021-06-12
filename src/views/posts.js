@@ -1,19 +1,19 @@
-import { savePost, getPost, onGetPost, borrarPost } from '../firebase/firebaseStorage.js';
+import { savePost, getPost, onGetPost, borrarPost, getPostbyId, updatePost } from '../firebase/firebaseStorage.js';
 
 export function vistaPost() {
   const viewsPost = `
   <div>
-    <form id="formPost">
+    <form id="form-Post">
       <div class="form-group">
-        <input type="text" id="postTitle" placeholder="titulo publicacion" class="form-control" autofocus>
+        <input type="text" id="post-Title" placeholder="titulo publicacion" class="form-control" autofocus>
       </div>
       <div class="form-group">
-        <textarea id="postDescription" rows="5" placeholder="Descripcion publicación" class="form-control"></textarea>
+        <textarea id="post-Description" placeholder="Descripcion publicación" class="form-control"></textarea>
       </div>
-      <button class="btn-Guardar">Guardar</button>
+      <button class="btn-Guardar" id="btn-guardar-post">Guardar</button>
     </form>
   </div>
-  <div id="postContainer">
+  <div id="post-Container">
   </div>
   `;
   const formulario = document.createElement('div');
@@ -22,17 +22,31 @@ export function vistaPost() {
 }
 
 export function postEvento() {
-  const formPost = document.getElementById('formPost');
-  const postContainer = document.getElementById('postContainer');
+
+  const formPost = document.getElementById('form-Post');
+  const postContainer = document.getElementById('post-Container');
   
+  // es false inicialmente porque por defecto el form no va a editar va a guardar
+  let editStatus = false;
+  let id = '';
+
   formPost.addEventListener('submit', async (e) => {
   e.preventDefault();
     
-    const title = document.getElementById('postTitle');
-    const description = document.getElementById('postDescription');
+    const title = document.getElementById('post-Title');
+    const description = document.getElementById('post-Description');
+    if(!editStatus) {
+      await savePost(title.value, description.value);
+  } else {
+    await updatePost(id, {
+      title: title.value,
+      description: description.value,
+    });
+    editStatus = false;
+     formPost['btn-guardar-post'].innerText = 'Guardar post';
+     id = '';
+  }
     
-    await savePost(title.value, description.value);
-  
     await getPost();
     formPost.reset();
     title.focus();
@@ -50,7 +64,7 @@ export function postEvento() {
       // console.log(doc.data());
       const post = doc.data();
       post.id = doc.id;
-      console.log(post);
+      console.log(post); // por consola que datos tiene cada post
       postContainer.innerHTML += `
       
       <div>
@@ -60,7 +74,7 @@ export function postEvento() {
         </textarea>
         <div>
         <button id="btnBorrar"class="btn-Borrar" data-id="${post.id}">Borrar</button> 
-        <button id="btnEditar"class="btn-Editar">Editar</button>
+        <button id="btnEditar"class="btn-Editar" data-id="${post.id}">Editar</button>
         </div>
       </div>
       `;
@@ -72,6 +86,25 @@ export function postEvento() {
           await borrarPost(e.target.dataset.id);
         });
       });
+
+      const botonEditar = document.querySelectorAll('.btn-Editar');
+      botonEditar.forEach((btn) => {
+        btn.addEventListener('click', async e => {
+          // console.log('Editando Publicaciones');
+          // console.log(e.target.dataset.id);
+           const document = await getPostbyId(e.target.dataset.id);
+           // console.log(document.data());
+           const postEdit = document.data();
+
+           editStatus = true;
+           id = document.id;
+
+           // el formulario se llena con esos datos
+          formPost['post-Title'].value = postEdit.title;
+          formPost['post-Description'].value = postEdit.description;
+          formPost['btn-guardar-post'].innerText = 'Actualizar';
+        });
+      })
       });
     });
   });

@@ -16,9 +16,9 @@ export function vistaLogin() {
     </div>
     `;
 
-    const elemento2 = document.createElement('div');
-    elemento2.innerHTML = viewsLogin;
-    return elemento2;
+    const formularioLogin = document.createElement('div');
+    formularioLogin.innerHTML = viewsLogin;
+    return formularioLogin;
 }
 
 export function loginEvento() {
