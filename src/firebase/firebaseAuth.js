@@ -36,7 +36,7 @@ export const logoutUsuario = (correo, contrasena) => {
     console.log(correo, contrasena);
     firebase
         .auth()
-        .sigOut()
+        .signOut()
         .then(() => {
             console.log('Sesion Cerrada');
         });

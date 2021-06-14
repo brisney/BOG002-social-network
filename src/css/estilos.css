@@ -224,3 +224,135 @@
     text-align: center;
     font-size: 25px;
 }
+
+
+/* Estilos para el layout */
+
+.bd-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    max-width: 1200px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    align-items: center;
+}
+
+.home {
+    height: calc(100vh);
+}
+
+.home__data {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.home__title {
+    margin-bottom: .5rem;
+    color: rgb(223, 12, 12);
+}
+
+.home__name {
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.home__img {
+    padding: 2rem;
+}
+
+
+/* media queries */
+
+@media screen and (min-width: 768px) {
+    body {
+        margin: 0;
+    }
+    .home {
+        height: 100vh;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .home__data {
+        padding: 0;
+        text-align: initial;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .bd-grid {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+/* Estilos para el post */
+
+.card {
+    width: 300px;
+    /* border: 2px solid black; */
+    margin-top: 10px;
+    margin-left: 30px;
+    height: 150px;
+}
+
+.form-control {
+    width: 180px;
+    margin-left: 60px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.form-control2 {
+    width: 180px;
+    margin-left: 60px;
+    margin-top: 2px;
+    height: 60px;
+}
+
+.box-save {
+    margin-left: 110px;
+    margin-top: 8px;
+}
+
+.btn-guardar {
+    border-radius: 5px;
+    display: inline-block;
+    padding: 8px 15px;
+    background: rgb(175, 107, 221);
+    color: cornsilk;
+}
+
+
+/*-------------- ESTILOS DE LOS POST EDITAR Y BORRAR--------------------- */
+
+.post {
+    border: 1px solid black;
+    height: 90px;
+    width: 280px;
+    box-shadow: 21px 17px 24px 4px rgba(211, 206, 206, 0.72);
+    margin-left: 45px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.box-btn {
+    margin-top: -15px;
+    margin-left: 45px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+    width: 280px;
+    background: rgb(255, 255, 255);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 10px;
+}
+
+.btn-Editar,
+.btn-Borrar {
+    border-radius: 5px;
+    display: inline-block;
+    padding: 8px 15px;
+    background: rgb(28, 206, 197);
+    color: cornsilk;
+}

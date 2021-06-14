@@ -28,7 +28,7 @@ const router = (route) => {
             loginGoogle();
             loginFacebook();
             break;
-        case '#/logout':
+        case '#/Logout':
             logoutEvento();
             break;
         case '#/post':

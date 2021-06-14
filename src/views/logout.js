@@ -5,5 +5,6 @@
       logout.addEventListener('click', (e) => {
           e.preventDefault();
           logoutUsuario();
+          console.log('sign out')
       });
   }
