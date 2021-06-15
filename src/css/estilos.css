@@ -1,5 +1,14 @@
 /* estilos para el body */
 
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
 .fondo {
     margin: 0;
     padding: 0;
@@ -74,10 +83,10 @@
     color: #fff;
     display: inline-block;
     font-size: 1.25em;
-    margin: 5px;
+    margin: 7px;
     padding: 10px 0;
     text-align: center;
-    width: 420px;
+    width: 430px;
     text-decoration: none;
     box-shadow: 0px 3px 0 #bd1a1a;
     cursor: pointer;
@@ -125,53 +134,57 @@
 }
 
 .centrado {
-    text-align: center;
+    margin-top: 33px;
+    font-size: 15px;
 }
 
 
 /* ESTILOS PARA EL REGISTRO */
 
-.container-registro {
-    background-color: #f5e7e7;
+.form {
     width: 500px;
-    height: 520px;
-    top: 60%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    padding: 10px 30px;
+    margin: auto;
+    background: rgba(236, 234, 234, 0.4);
+    padding: 10px 20px;
+    margin-top: 30px;
+    border-radius: 50px;
+    height: 480px;
     border: 1px solid black;
-    border-radius: 30px;
     box-shadow: 0px 0px 20px #77778b;
 }
 
-.container-registro .registro {
-    margin: 30px;
-    padding: 0;
+h2 {
     text-align: center;
-    font-size: 30px;
-}
-
-.registro {
-    font-family: 'Lato', sans-serif;
-}
-
-.container-registro label {
     margin: 0;
-    padding: 0;
-    font-weight: bold;
-    display: block;
-    font-size: 15px;
-}
-
-.container-registro input {
-    width: 100%;
+    font-size: 40px;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-.container-registro input[type="text"],
-.container-registro input[type="password"] {
+.input {
+    width: 90%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    margin-left: 12px;
+    padding: 7px;
+    font-size: 20px;
+}
+
+.buttonRegistrar {
+    background: #d5d8d8;
+    display: inline-block;
+    font-size: 1.25em;
+    margin: 7px;
+    padding: 10px 0;
+    text-align: center;
+    width: 430px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
     border: none;
     border-bottom: 1px solid black;
     background: transparent;
@@ -180,49 +193,106 @@
     font-size: 16px;
 }
 
-.buttonRegistro {
+.buttonGoogle {
     background: rgb(219 68 55);
     color: #fff;
     display: inline-block;
     font-size: 1.25em;
-    margin: 5px;
+    margin: 7px;
     padding: 10px 0;
     text-align: center;
-    width: 420px;
+    width: 430px;
     text-decoration: none;
     box-shadow: 0px 3px 0 #bd1a1a;
     cursor: pointer;
     border-radius: 50px;
 }
 
-.button span {
-    margin: 15px;
+.centrado2 {
+    margin-top: 33px;
+    font-size: 15px;
 }
 
-.textoO {
-    text-align: center;
+@media (max-width: 480px) {
+    .form {
+        width: 100%;
+    }
 }
 
-.buttonRegistrar {
-    background: #d3e4e1;
-    display: inline-block;
-    font-size: 1.25em;
-    margin: 5px;
-    padding: 10px 0;
-    text-align: center;
-    width: 420px;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 50px;
+@media (max-width: 600px) {
+    .buttonRegistrar {
+        display: inline-block;
+        font-size: 1.5em;
+        margin: 7px;
+        padding: 10px 0;
+        text-align: center;
+        width: 320px;
+        cursor: pointer;
+        border-radius: 50px;
+    }
+    .form {
+        width: 400px;
+        margin: auto;
+        background: rgba(236, 234, 234, 0.4);
+        padding: 10px 20px;
+        margin-top: 30px;
+        border-radius: 50px;
+        height: 480px;
+        border: 1px solid black;
+        box-shadow: 0px 0px 20px #77778b;
+    }
+    .buttonGoogle {
+        background: rgb(219 68 55);
+        color: #fff;
+        display: inline-block;
+        font-size: 1.25em;
+        margin: 7px;
+        padding: 10px 0;
+        text-align: center;
+        width: 320px;
+        text-decoration: none;
+        box-shadow: 0px 3px 0 #bd1a1a;
+        cursor: pointer;
+        border-radius: 50px;
+    }
 }
 
-.centrado {
-    text-align: center;
-}
-
-.crearCuenta {
-    text-align: center;
-    font-size: 25px;
+@media (max-width: 460px) {
+    .buttonRegistrar {
+        display: inline-block;
+        font-size: 1.5em;
+        margin: 7px;
+        padding: 10px 0;
+        text-align: center;
+        width: 270px;
+        cursor: pointer;
+        border-radius: 50px;
+    }
+    .form {
+        width: 350px;
+        margin: auto;
+        background: rgba(236, 234, 234, 0.4);
+        padding: 10px 20px;
+        margin-top: 30px;
+        border-radius: 50px;
+        height: 480px;
+        border: 1px solid black;
+        box-shadow: 0px 0px 20px #77778b;
+    }
+    .buttonGoogle {
+        background: rgb(219 68 55);
+        color: #fff;
+        display: inline-block;
+        font-size: 1.25em;
+        margin: 7px 10px;
+        padding: 10px 0;
+        text-align: center;
+        width: 270px;
+        text-decoration: none;
+        box-shadow: 0px 3px 0 #bd1a1a;
+        cursor: pointer;
+        border-radius: 50px;
+    }
 }
 
 
@@ -247,8 +317,15 @@
 }
 
 .home__title {
-    margin-bottom: .5rem;
+    margin-bottom: .5rempx;
     color: rgb(223, 12, 12);
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.marvel-title {
+    font-size: 35px;
+    margin-bottom: 40px;
 }
 
 .home__name {
@@ -259,6 +336,10 @@
 
 .home__img {
     padding: 2rem;
+}
+
+.image {
+    height: 50px;
 }
 
 
@@ -355,4 +436,22 @@
     padding: 8px 15px;
     background: rgb(28, 206, 197);
     color: cornsilk;
+    border: none;
 }
+
+
+/* Estilos para el boton Like */
+
+.like__btn {
+    padding: 8px 15px;
+    background: rgb(255, 6, 6);
+    color: white;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Estilos de el header */

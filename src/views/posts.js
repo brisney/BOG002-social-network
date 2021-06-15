@@ -79,6 +79,10 @@ export function postEvento() {
         <button id="btnBorrar"class="btn-Borrar" data-id="${post.id}">Borrar</button>
         
         <button id="btnEditar"class="btn-Editar" data-id="${post.id}">Editar</button>
+        <button class="like__btn">
+        <span id="icon"><i class="far fa-heart"></i></span>
+        <span id="count">0</span> Likes
+        </button>
         </div>
       </div>
       `;
@@ -90,6 +94,21 @@ export function postEvento() {
                         await borrarPost(e.target.dataset.id);
                     });
                 });
+
+                //BOTON LIKES
+                let contador = 0;
+                const botones = document.querySelectorAll('.like_btn');
+                botones.forEach((el) => {
+                    el.addEventListener('click', contar);
+                });
+
+                function contar() {
+                    contador++;
+                    document.getElementById('count').innerHTML = contador;
+                }
+
+
+                //BOTON EDITAR
 
                 const botonEditar = document.querySelectorAll('.btn-Editar');
                 botonEditar.forEach((btn) => {
@@ -112,4 +131,5 @@ export function postEvento() {
             });
         });
     });
+
 }
