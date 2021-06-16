@@ -90,8 +90,12 @@ export function postEvento() {
                 const botonBorrar = document.querySelectorAll('.btn-Borrar');
                 botonBorrar.forEach((btn) => {
                     btn.addEventListener('click', async(e) => {
-                        console.log(e.target.dataset.id); // aqui obtenemos el id de cada publicacion
+                        if (window.confirm('Seguro deseas borrar la publicacion?')) {
+                            window.alert('¡¡¡Publicacion eliminada!!!');
+                        // aqui obtenemos el id de cada publicacion
+                        // console.log(e.target.dataset.id);
                         await borrarPost(e.target.dataset.id);
+                        }
                     });
                 });
 
