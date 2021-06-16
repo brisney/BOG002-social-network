@@ -55,7 +55,7 @@ export function postEvento() {
         // console.log(title, description);
     });
 
-    window.addEventListener('DOMContentLoaded', async(e) => {
+    // window.addEventListener('DOMContentLoaded', async(e) => {
         // console.log(e);
         // const posts -> querySnapshot (objeto que podemos recorrer)
         // const querySnapshot = await getPost();
@@ -134,6 +134,6 @@ export function postEvento() {
                 })
             });
         });
-    });
+    // });
 
 }

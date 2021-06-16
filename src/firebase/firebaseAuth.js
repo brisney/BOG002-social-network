@@ -2,7 +2,7 @@
 
 export const registroUsuario = (correo, contrasena) => {
     console.log(correo, contrasena);
-    firebase
+    return firebase
         .auth()
         .createUserWithEmailAndPassword(correo, contrasena)
         .then((userCredential) => {
@@ -23,6 +23,7 @@ export const loginUsuario = (correo, contrasena) => {
         .auth()
         .signInWithEmailAndPassword(correo, contrasena)
         .then((userCredential) => {
+            window.location.hash = '#/post';
             // Signed in
             console.log('Usuario logueado', userCredential.user);
             // ...
