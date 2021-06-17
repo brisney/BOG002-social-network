@@ -29,22 +29,7 @@
 
 /* Estilos para el formulario de inicio de sesion */
 
-.container-login {
-    background-color: #ffffff;
-    width: 500px;
-    height: 520px;
-    top: 60%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    padding: 10px 30px;
-    border: 1px solid black;
-    border-radius: 30px;
-    box-shadow: 0px 0px 20px #77778b;
-}
-
-.container-login .inicioSesion {
+.formLogin .inicioSesion {
     margin: 30px;
     padding: 0;
     text-align: center;
@@ -52,30 +37,11 @@
 }
 
 .inicioSesion {
-    font-family: 'Lato', sans-serif;
-}
-
-.container-login label {
+    text-align: center;
     margin: 0;
-    padding: 0;
-    font-weight: bold;
-    display: block;
-    font-size: 15px;
-}
-
-.container-login input {
-    width: 100%;
+    font-size: 40px;
     margin-bottom: 20px;
-}
-
-.container-login input[type="text"],
-.container-login input[type="password"] {
-    border: none;
-    border-bottom: 1px solid black;
-    background: transparent;
-    outline: none;
-    height: 40px;
-    font-size: 16px;
+    margin-top: 20px;
 }
 
 .button {
@@ -116,18 +82,22 @@
     margin: 15px;
 }
 
+.buttonGoogle span {
+    margin: 18px;
+}
+
 .textoO {
     text-align: center;
 }
 
 .buttonContinuar {
-    background: #d3e4e1;
+    background: #d5d8d8;
     display: inline-block;
     font-size: 1.25em;
-    margin: 5px;
+    margin: 7px;
     padding: 10px 0;
     text-align: center;
-    width: 420px;
+    width: 430px;
     text-decoration: none;
     cursor: pointer;
     border-radius: 50px;
@@ -230,6 +200,26 @@ h2 {
         cursor: pointer;
         border-radius: 50px;
     }
+    .buttonContinuar {
+        display: inline-block;
+        font-size: 1.2em;
+        margin: 7px;
+        padding: 10px 0;
+        text-align: center;
+        width: 320px;
+        cursor: pointer;
+        border-radius: 50px;
+    }
+    .buttonFacebook {
+        display: inline-block;
+        font-size: 18px;
+        margin: 7px;
+        padding: 10px 0;
+        text-align: center;
+        width: 320px;
+        cursor: pointer;
+        border-radius: 50px;
+    }
     .form {
         width: 400px;
         margin: auto;
@@ -245,7 +235,7 @@ h2 {
         background: rgb(219 68 55);
         color: #fff;
         display: inline-block;
-        font-size: 1.25em;
+        font-size: 18px;
         margin: 7px;
         padding: 10px 0;
         text-align: center;
@@ -259,6 +249,16 @@ h2 {
 
 @media (max-width: 460px) {
     .buttonRegistrar {
+        display: inline-block;
+        font-size: 1.5em;
+        margin: 7px;
+        padding: 10px 0;
+        text-align: center;
+        width: 270px;
+        cursor: pointer;
+        border-radius: 50px;
+    }
+    .buttonContinuar {
         display: inline-block;
         font-size: 1.5em;
         margin: 7px;
@@ -290,6 +290,20 @@ h2 {
         width: 270px;
         text-decoration: none;
         box-shadow: 0px 3px 0 #bd1a1a;
+        cursor: pointer;
+        border-radius: 50px;
+    }
+    .buttonFacebook {
+        background: #3b5998;
+        color: #fff;
+        display: inline-block;
+        font-size: 1.25em;
+        margin: 7px 10px;
+        padding: 10px 0;
+        text-align: center;
+        width: 270px;
+        text-decoration: none;
+        box-shadow: 0px 3px 0 #0509ff;
         cursor: pointer;
         border-radius: 50px;
     }

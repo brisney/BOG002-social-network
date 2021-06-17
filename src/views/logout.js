@@ -5,6 +5,6 @@
       logout.addEventListener('click', (e) => {
           e.preventDefault();
           logoutUsuario();
-          console.log('sign out')
+          window.location.hash = '#/Home';
       });
   }
