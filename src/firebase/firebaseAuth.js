@@ -1,3 +1,6 @@
+// import { postEvento } from '../views/posts.js'
+// import { loginEvento } from '../views/login.js'
+
 // registro con email
 
 export const registroUsuario = (correo, contrasena) => {
@@ -38,8 +41,10 @@ export const verificarUsuario = () => {
         if(user){
             console.log('si existe usuario',user)
             // window.location.hash = '#/login';
+            // postEvento()
         }else {
             console.log('Ojo usuario no existe');
+            // loginEvento()
         }
     })
 }
