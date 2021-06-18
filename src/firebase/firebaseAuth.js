@@ -8,6 +8,7 @@ export const registroUsuario = (correo, contrasena) => {
         .then((userCredential) => {
             // Signed in
             console.log('Usuario registrado', userCredential.user);
+            
             // ...
         })
         .catch((error) => {
@@ -19,7 +20,7 @@ export const registroUsuario = (correo, contrasena) => {
 // Login con email
 export const loginUsuario = (correo, contrasena) => {
     console.log(correo, contrasena);
-    firebase
+    return firebase
         .auth()
         .signInWithEmailAndPassword(correo, contrasena)
         .then((userCredential) => {
@@ -48,11 +49,12 @@ export function loginGoogle() {
     const googleButton = document.getElementById('googleLogin');
     googleButton.addEventListener('click', () => {
         let provider = new firebase.auth.GoogleAuthProvider();
-        firebase
+        return firebase
             .auth()
             .signInWithPopup(provider)
             .then((result) => {
                 console.log(result);
+                window.location.hash = '#/posts';
             })
             .catch((err) => {
                 console.log(err);
