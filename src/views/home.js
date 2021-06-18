@@ -1,5 +1,5 @@
 export function vistaHome() {
-    const viewHome = `
+    const viewHome =  /*html*/ `
     <div class="home bd-grid">
         <div class="home__data">
             <h1 class="home__title">Welcome to the</h1>

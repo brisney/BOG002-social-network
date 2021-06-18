@@ -3,7 +3,7 @@ import { vistaHome } from '../views/home.js';
 import { vistaRegistro, registroEvento } from '../views/registro.js';
 import { vistaLogin, loginEvento } from '../views/login.js';
 import { logoutEvento } from '../views/logout.js';
-import { loginGoogle, loginFacebook } from '../firebase/firebaseAuth.js';
+import { loginGoogle, loginFacebook, verificarUsuario } from '../firebase/firebaseAuth.js';
 import { vistaPost, postEvento } from '../views/posts.js';
 
 const content = document.getElementById('root');
@@ -27,6 +27,7 @@ const router = (route) => {
             loginEvento();
             loginGoogle();
             loginFacebook();
+            verificarUsuario();
             break;
         case '#/Logout':
             logoutEvento();

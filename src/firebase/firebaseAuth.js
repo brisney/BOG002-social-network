@@ -29,17 +29,30 @@ export const loginUsuario = (correo, contrasena) => {
             // ...
         })
         .catch((error) => {
-            console.log('error', error.message);
+            console.log('ups ha ocurrido un error', error.message);
         });
 };
+// observador de estado de autenticación y obtén datos del usuario
+export const verificarUsuario = () => {
+    firebase.auth().onAuthStateChanged(user => {
+        if(user){
+            console.log('si existe usuario',user)
+            // window.location.hash = '#/login';
+        }else {
+            console.log('Ojo usuario no existe');
+        }
+    })
+}
 
-export const logoutUsuario = (correo, contrasena) => {
-    console.log(correo, contrasena);
+export const logoutUsuario = () => {
     firebase
         .auth()
         .signOut()
         .then(() => {
             console.log('Sesion Cerrada');
+        })
+        .catch((error) => {
+            console.log('ups ha ocurrido un error', error.message);
         });
 };
 

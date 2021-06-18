@@ -1,23 +1,23 @@
 import { savePost, getPost, onGetPost, borrarPost, getPostbyId, updatePost } from '../firebase/firebaseStorage.js';
 
 export function vistaPost() {
-    const viewsPost = `
-  <div class="card">
-    <form id="form-Post" class="form-Post">
-      <div class="form-group">
-        <input type="text" id="post-Title" placeholder="titulo publicacion" class="form-control" autofocus>
-      </div>
-      <div class="form-group">
-        <input id="post-Description" placeholder="Descripcion publicación" class="form-control2">
-      </div>
-      <div class="box-save">
-      <button class="btn-guardar" id="btn-guardar-post">Guardar</button>
-      </div>
-    </form>
-  </div>
-  <div id="post-Container">
-  </div>
-  `;
+    const viewsPost =  /*html*/ `
+    <div class="card">
+        <form id="form-Post" class="form-Post">
+        <div class="form-group">
+            <input type="text" id="post-Title" placeholder="titulo publicacion" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+            <input id="post-Description" placeholder="Descripcion publicación" class="form-control2">
+        </div>
+        <div class="box-save">
+        <button class="btn-guardar" id="btn-guardar-post">Guardar</button>
+        </div>
+        </form>
+    </div>
+    <div id="post-Container">
+    </div>
+    `;
     const formulario = document.createElement('div');
     formulario.innerHTML = viewsPost;
     return formulario;
@@ -67,7 +67,7 @@ export function postEvento() {
                 const post = doc.data();
                 post.id = doc.id;
                 console.log(post); // por consola que datos tiene cada post
-                postContainer.innerHTML += `
+                postContainer.innerHTML +=  /*html*/ `
       
       <div>
         <div class="post">
