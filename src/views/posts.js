@@ -1,7 +1,7 @@
 import { savePost, getPost, onGetPost, borrarPost, getPostbyId, updatePost } from '../firebase/firebaseStorage.js';
 
 export function vistaPost() {
-    const viewsPost =  /*html*/ `
+    const viewsPost = /*html*/ `
     <div class="card">
         <form id="form-Post" class="form-Post">
         <div class="form-group">
@@ -56,18 +56,18 @@ export function postEvento() {
     });
 
     // window.addEventListener('DOMContentLoaded', async(e) => {
-        // console.log(e);
-        // const posts -> querySnapshot (objeto que podemos recorrer)
-        // const querySnapshot = await getPost();
-        // console.log(posts);
-        onGetPost((querySnapshot) => {
-            postContainer.innerHTML = '';
-            querySnapshot.forEach((doc) => {
-                // console.log(doc.data());
-                const post = doc.data();
-                post.id = doc.id;
-                console.log(post); // por consola que datos tiene cada post
-                postContainer.innerHTML +=  /*html*/ `
+    // console.log(e);
+    // const posts -> querySnapshot (objeto que podemos recorrer)
+    // const querySnapshot = await getPost();
+    // console.log(posts);
+    onGetPost((querySnapshot) => {
+        postContainer.innerHTML = '';
+        querySnapshot.forEach((doc) => {
+            // console.log(doc.data());
+            const post = doc.data();
+            post.id = doc.id;
+            console.log(post); // por consola que datos tiene cada post
+            postContainer.innerHTML += /*html*/ `
       
       <div>
         <div class="post">
@@ -87,53 +87,62 @@ export function postEvento() {
       </div>
       `;
 
-                const botonBorrar = document.querySelectorAll('.btn-Borrar');
-                botonBorrar.forEach((btn) => {
-                    btn.addEventListener('click', async(e) => {
-                        if (window.confirm('Seguro deseas borrar la publicacion?')) {
-                            window.alert('¡¡¡Publicacion eliminada!!!');
+            const botonBorrar = document.querySelectorAll('.btn-Borrar');
+            botonBorrar.forEach((btn) => {
+                btn.addEventListener('click', async(e) => {
+                    if (window.confirm('Seguro deseas borrar la publicacion?')) {
+                        window.alert('¡¡¡Publicacion eliminada!!!');
                         // aqui obtenemos el id de cada publicacion
                         // console.log(e.target.dataset.id);
                         await borrarPost(e.target.dataset.id);
-                        }
-                    });
+                    }
                 });
-
-                //BOTON LIKES
-                let contador = 0;
-                const botones = document.querySelectorAll('.like_btn');
-                botones.forEach((el) => {
-                    el.addEventListener('click', contar);
-                });
-
-                function contar() {
-                    contador++;
-                    document.getElementById('count').innerHTML = contador;
-                }
-
-
-                //BOTON EDITAR
-
-                const botonEditar = document.querySelectorAll('.btn-Editar');
-                botonEditar.forEach((btn) => {
-                    btn.addEventListener('click', async e => {
-                        // console.log('Editando Publicaciones');
-                        // console.log(e.target.dataset.id);
-                        const document = await getPostbyId(e.target.dataset.id);
-                        // console.log(document.data());
-                        const postEdit = document.data();
-
-                        editStatus = true;
-                        id = document.id;
-
-                        // el formulario se llena con esos datos
-                        formPost['post-Title'].value = postEdit.title;
-                        formPost['post-Description'].value = postEdit.description;
-                        formPost['btn-guardar-post'].innerText = 'Actualizar';
-                    });
-                })
             });
+
+            //BOTON LIKES
+            let likeBtn = document.querySelectorAll('.like__btn');
+            likeBtn.forEach((btn) => {
+                btn.addEventListener('click', async e => {
+
+                    let likeIcon = document.querySelectorAll('#icon');
+                    let count = document.querySelector('#count');
+                    let clicked = false;
+
+                    if (!clicked) {
+                        clicked = true;
+                        likeIcon.innerHTML = `<i class="fas fa-heart"></i>`;
+                        count.textContent++;
+                    } else {
+                        clicked = false;
+                        likeIcon.innerHTML = `<i class="far fa-heart"></i>`;
+                        count.textContent--;
+                    }
+                })
+            })
+
+
+            //BOTON EDITAR
+
+            const botonEditar = document.querySelectorAll('.btn-Editar');
+            botonEditar.forEach((btn) => {
+                btn.addEventListener('click', async e => {
+                    // console.log('Editando Publicaciones');
+                    // console.log(e.target.dataset.id);
+                    const document = await getPostbyId(e.target.dataset.id);
+                    // console.log(document.data());
+                    const postEdit = document.data();
+
+                    editStatus = true;
+                    id = document.id;
+
+                    // el formulario se llena con esos datos
+                    formPost['post-Title'].value = postEdit.title;
+                    formPost['post-Description'].value = postEdit.description;
+                    formPost['btn-guardar-post'].innerText = 'Actualizar';
+                });
+            })
         });
+    });
     // });
 
 }
