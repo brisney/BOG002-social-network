@@ -25,8 +25,9 @@ export const loginUsuario = (correo, contrasena) => {
         .signInWithEmailAndPassword(correo, contrasena)
         .then((userCredential) => {
             window.location.hash = '#/post';
-            // Signed in
             console.log('Usuario logueado', userCredential.user);
+            // Signed in
+            // console.log('Usuario logueado', userCredential.user);
             // ...
         })
         .catch((error) => {
