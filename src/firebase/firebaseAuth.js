@@ -1,13 +1,9 @@
-// import { postEvento } from '../views/posts.js'
-// import { loginEvento } from '../views/login.js'
-
-// registro con email
-
-export const registroUsuario = (correo, contrasena) => {
-    console.log(correo, contrasena);
+// registro de usuario
+export const userRegister = (email, password) => {
+    console.log(email, password);
     return firebase
         .auth()
-        .createUserWithEmailAndPassword(correo, contrasena)
+        .createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed in
             console.log('Usuario registrado', userCredential.user);
@@ -20,11 +16,11 @@ export const registroUsuario = (correo, contrasena) => {
 };
 
 // Login con email
-export const loginUsuario = (correo, contrasena) => {
-    console.log(correo, contrasena);
+export const loginUser = (email, password) => {
+    console.log(email, password);
     firebase
         .auth()
-        .signInWithEmailAndPassword(correo, contrasena)
+        .signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             window.location.hash = '#/post';
             // Signed in
@@ -35,21 +31,8 @@ export const loginUsuario = (correo, contrasena) => {
             console.log('ups ha ocurrido un error', error.message);
         });
 };
-// observador de estado de autenticación y obtén datos del usuario
-export const verificarUsuario = () => {
-    firebase.auth().onAuthStateChanged(user => {
-        if(user){
-            console.log('si existe usuario',user)
-            // window.location.hash = '#/login';
-            // postEvento()
-        }else {
-            console.log('Ojo usuario no existe');
-            // loginEvento()
-        }
-    })
-}
 
-export const logoutUsuario = () => {
+export const logoutUser = () => {
     firebase
         .auth()
         .signOut()
@@ -61,7 +44,7 @@ export const logoutUsuario = () => {
         });
 };
 
-// logeandonos con google
+// logeo con google
 export function loginGoogle() {
     const googleButton = document.getElementById('googleLogin');
     googleButton.addEventListener('click', () => {
@@ -79,7 +62,7 @@ export function loginGoogle() {
     });
 }
 
-// logeamos con Facebook
+// logeo con Facebook
 export function loginFacebook() {
     const facebookButton = document.getElementById('facebookLogin');
     facebookButton.addEventListener('click', (e) => {
@@ -95,13 +78,3 @@ export function loginFacebook() {
             })
     })
 }
-
-
-
-// export const savePost = (title, description) => {
-//   const db = firebase.firestore();
-//   db.collection('Publicaciones').doc().set({
-//     title,
-//     description,
-//   });
-// }

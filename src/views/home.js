@@ -1,4 +1,4 @@
-export function vistaHome() {
+export function viewsHome() {
     const viewHome =  /*html*/ `
     <div class="home bd-grid">
         <div class="home__data">
@@ -14,7 +14,7 @@ export function vistaHome() {
    </div>
     `;
 
-    const elementoHome = document.createElement('div');
-    elementoHome.innerHTML = viewHome;
-    return elementoHome;
+    const elementHome = document.createElement('div');
+    elementHome.innerHTML = viewHome;
+    return elementHome;
 }

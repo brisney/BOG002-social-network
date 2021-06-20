@@ -1,13 +1,13 @@
-import { loginUsuario } from '../firebase/firebaseAuth.js';
+import { loginUser } from '../firebase/firebaseAuth.js';
 
-export function vistaLogin() {
+export function viewsLogin() {
     const viewsLogin =  /*html*/ `
    
 
         <form id="formLogin" class="form">
             <h3 class="inicioSesion">Inicio Sesion</h3>
-            <input class="input" type="text" placeholder="Ingrese correo" id="correoLogin">
-            <input class="input" type="password" placeholder="Ingrese contraseña" id="contrasenaLogin">
+            <input class="input" type="text" placeholder="Ingrese correo" id="emailLogin">
+            <input class="input" type="password" placeholder="Ingrese contraseña" id="passwordLogin">
             <button class="buttonContinuar" type="submit">Continuar</button>
             <p class="textoO">O</p>
             <button class="buttonGoogle" id="googleLogin"><span><i class="fab fa-google"></i></span>Ingresar con Google</button>
@@ -16,18 +16,18 @@ export function vistaLogin() {
         </form>
     `;
 
-    const formularioLogin = document.createElement('div');
-    formularioLogin.innerHTML = viewsLogin;
-    return formularioLogin;
+    const elementLogin = document.createElement('div');
+    elementLogin.innerHTML = viewsLogin;
+    return elementLogin;
 }
 
-export function loginEvento() {
+export function loginEvent() {
     const formLogin = document.getElementById('formLogin');
     formLogin.addEventListener('submit', (event) => {
-        const correoLogin = document.getElementById('correoLogin').value;
-        const contrasenaLogin = document.getElementById('contrasenaLogin').value;
+        const emailLogin = document.getElementById('emailLogin').value;
+        const passwordLogin = document.getElementById('passwordLogin').value;
         event.preventDefault();
-        loginUsuario(correoLogin.trim(), contrasenaLogin.trim());
+        loginUser(emailLogin.trim(), passwordLogin.trim());
     });
     console.log(firebase);
 }

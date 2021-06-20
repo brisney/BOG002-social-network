@@ -7,7 +7,7 @@ class myHeader extends HTMLElement {
         //el get templte generamos nuestra etiqueta template
     getTemplate() {
         const template = document.createElement('template')
-        template.innerHTML = `
+        template.innerHTML = /*html*/ `
         <header class="header">
         <nav class="nav">
             <a href="#/Home" class="logo nav-link">Marvel</a>
@@ -18,6 +18,7 @@ class myHeader extends HTMLElement {
                 <li class="nav-menu-item"><a href="#/Home" class="nav-menu-link nav-link">Home</a></li>
                 <li class="nav-menu-item"><a href="#/login" class="nav-menu-link nav-link">Login</a></li>
                 <li class="nav-menu-item"><a href="#/Registro" class="nav-menu-link nav-link">Register</a></li>
+                <li class="nav-menu-item"><a href="#/logout" class="nav-menu-link nav-link" id="logout">Logout</a></li>
             </ul>
         </nav>
     </header>

@@ -1,6 +1,6 @@
-import { savePost, getPost, onGetPost, borrarPost, getPostbyId, updatePost } from '../firebase/firebaseStorage.js';
+import { savePost, getPost, onGetPost, deletePost, getPostbyId, updatePost } from '../firebase/firebaseStorage.js';
 
-export function vistaPost() {
+export function viewsPost() {
     const viewsPost = /*html*/ `
     <div class="card">
         <form id="form-Post" class="form-Post">
@@ -11,19 +11,19 @@ export function vistaPost() {
             <input id="post-Description" placeholder="Descripcion publicación" class="form-control2">
         </div>
         <div class="box-save">
-        <button class="btn-guardar" id="btn-guardar-post">Guardar</button>
+        <button class="btn-guardar" id="btn-save-post">Guardar</button>
         </div>
         </form>
     </div>
     <div id="post-Container">
     </div>
     `;
-    const formulario = document.createElement('div');
-    formulario.innerHTML = viewsPost;
-    return formulario;
+    const elementPost = document.createElement('div');
+    elementPost.innerHTML = viewsPost;
+    return elementPost;
 }
 
-export function postEvento() {
+export function postEvent() {
 
     const formPost = document.getElementById('form-Post');
     const postContainer = document.getElementById('post-Container');
@@ -45,7 +45,7 @@ export function postEvento() {
                 description: description.value,
             });
             editStatus = false;
-            formPost['btn-guardar-post'].innerText = 'Guardar post';
+            formPost['btn-save-post'].innerText = 'Guardar';
             id = '';
         }
 
@@ -87,14 +87,14 @@ export function postEvento() {
       </div>
       `;
 
-            const botonBorrar = document.querySelectorAll('.btn-Borrar');
-            botonBorrar.forEach((btn) => {
+            const buttonDelete = document.querySelectorAll('.btn-Borrar');
+            buttonDelete.forEach((btn) => {
                 btn.addEventListener('click', async(e) => {
                     if (window.confirm('Seguro deseas borrar la publicacion?')) {
                         window.alert('¡¡¡Publicacion eliminada!!!');
                         // aqui obtenemos el id de cada publicacion
                         // console.log(e.target.dataset.id);
-                        await borrarPost(e.target.dataset.id);
+                        await deletePost(e.target.dataset.id);
                     }
                 });
             });
@@ -123,8 +123,8 @@ export function postEvento() {
 
             //BOTON EDITAR
 
-            const botonEditar = document.querySelectorAll('.btn-Editar');
-            botonEditar.forEach((btn) => {
+            const buttonEdit = document.querySelectorAll('.btn-Editar');
+            buttonEdit.forEach((btn) => {
                 btn.addEventListener('click', async e => {
                     // console.log('Editando Publicaciones');
                     // console.log(e.target.dataset.id);

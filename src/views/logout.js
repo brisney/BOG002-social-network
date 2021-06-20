@@ -1,10 +1,11 @@
-  import { logoutUsuario } from '../firebase/firebaseAuth.js';
+  import { logoutUser } from '../firebase/firebaseAuth.js';
 
-  export function logoutEvento() {
+  export function logoutEvent() {
       const logout = document.getElementById('logout');
       logout.addEventListener('click', (e) => {
           e.preventDefault();
-          logoutUsuario();
+          logoutUser();
+          console.log('sesion cerrada')
           window.location.hash = '#/Home';
       });
   }
