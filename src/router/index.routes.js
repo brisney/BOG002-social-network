@@ -16,6 +16,7 @@ const router = (route) => {
             break;
         case '#/Home':
             content.appendChild(vistaHome());
+            logoutEvento();
 
             break;
         case '#/Registro':
@@ -28,9 +29,9 @@ const router = (route) => {
             loginGoogle();
             loginFacebook();
             break;
-        case '#/Logout':
-            logoutEvento();
-            break;
+        // case '#/Logout':
+        //     logoutEvento();
+        //     break;
         case '#/post':
             content.appendChild(vistaPost());
             postEvento();

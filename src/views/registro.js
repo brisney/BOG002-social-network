@@ -1,4 +1,4 @@
-import { registroUsuario } from '../firebase/firebaseAuth.js';
+import { registroUsuario, loginGoogle } from '../firebase/firebaseAuth.js';
 
 export function vistaRegistro() {
     const viewRegistro = `
@@ -25,3 +25,10 @@ export function registroEvento() {
         registroUsuario(correo.trim(), contrasena.trim());
     });
 }
+// export function EventRegisterLogin() {
+//     const googleButton = document.getElementById('googleLogin');
+//       console.log("fuera del contenedor")
+//       googleButton.addEventListener('click', loginGoogle())
+    
+//     //   return formuarioRegistro;
+//     }

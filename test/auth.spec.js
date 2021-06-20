@@ -34,10 +34,10 @@ describe('loguin usuario', () => {
     expect(typeof loginUsuario).toBe('function');
   });
 it('deberia loguearme', () => {
-      loginUsuario('bri@hotmail.com', '123451234').then((userCredential) => {
+      return loginUsuario('bri@hotmail.com', '123451234').then((userCredential) => {
         expect(typeof userCredential).toBe('object');
-        expect(userCredential.correo).toBe('bri@hotmail.com');
-        expect(userCredential.contrasena).tobe('123451234');
+        console.log(userCredential)
+        expect(userCredential.email).toBe('bri@hotmail.com');
       });
     });
 });
@@ -47,11 +47,11 @@ describe('Login con google', () => {
     expect(typeof loginGoogle).toBe('function');
   });
 
-  it('deberia loguearme con Gmail', () => {
+  it.only('deberia loguearme con Gmail', () => {
     const promesa = loginGoogle()
     return promesa
-      .then(() => {
-        expect(typeof loginGoogle()).toBe('object');
+      .then((result) => {
+        expect(typeof result).toEqual('object');
       })
   })
 });

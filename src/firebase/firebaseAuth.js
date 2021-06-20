@@ -8,7 +8,6 @@ export const registroUsuario = (correo, contrasena) => {
         .then((userCredential) => {
             // Signed in
             console.log('Usuario registrado', userCredential.user);
-            
             // ...
         })
         .catch((error) => {
@@ -25,23 +24,37 @@ export const loginUsuario = (correo, contrasena) => {
         .signInWithEmailAndPassword(correo, contrasena)
         .then((userCredential) => {
             window.location.hash = '#/post';
-            console.log('Usuario logueado', userCredential.user);
             // Signed in
-            // console.log('Usuario logueado', userCredential.user);
+            console.log('Usuario logueado', userCredential.user);
+            return userCredential
             // ...
         })
         .catch((error) => {
-            console.log('error', error.message);
+            console.log('ups ha ocurrido un error', error.message);
+            return error
         });
 };
+// observador de estado de autenticación y obtén datos del usuario
+export const verificarUsuario = () => {
+    firebase.auth().onAuthStateChanged(user => {
+        if(user){
+            console.log('si existe usuario',user)
+            // window.location.hash = '#/login';
+        }else {
+            console.log('Ojo usuario no existe');
+        }
+    })
+}
 
-export const logoutUsuario = (correo, contrasena) => {
-    console.log(correo, contrasena);
+export const logoutUsuario = () => {
     firebase
         .auth()
         .signOut()
         .then(() => {
             console.log('Sesion Cerrada');
+        })
+        .catch((error) => {
+            console.log('ups ha ocurrido un error', error.message);
         });
 };
 
@@ -55,7 +68,7 @@ export function loginGoogle() {
             .signInWithPopup(provider)
             .then((result) => {
                 console.log(result);
-                window.location.hash = '#/posts';
+                window.location.hash = '#/post';
             })
             .catch((err) => {
                 console.log(err);
@@ -66,13 +79,13 @@ export function loginGoogle() {
 // logeamos con Facebook
 export function loginFacebook() {
     const facebookButton = document.getElementById('facebookLogin');
-    facebookButton.addEventListener('click', () => {
-        //e.preventDefault();
+    facebookButton.addEventListener('click', (e) => {
+        e.preventDefault();
         const provider = new firebase.auth.FacebookAuthProvider();
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
                 console.log(result);
-                console.log('facebook sin ing');
+                window.location.hash = '#/post';
             })
             .catch((err) => {
                 console.log(err);
