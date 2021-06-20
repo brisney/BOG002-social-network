@@ -138,7 +138,7 @@ export function postEvent() {
                     // el formulario se llena con esos datos
                     formPost['post-Title'].value = postEdit.title;
                     formPost['post-Description'].value = postEdit.description;
-                    formPost['btn-guardar-post'].innerText = 'Actualizar';
+                    formPost['btn-save-post'].innerText = 'Actualizar';
                 });
             })
         });
