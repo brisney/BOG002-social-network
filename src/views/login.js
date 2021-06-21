@@ -2,8 +2,6 @@ import { loginUsuario } from '../firebase/firebaseAuth.js';
 
 export function vistaLogin() {
     const viewsLogin = /*html*/ `
-   
-
         <form id="formLogin" class="form">
             <h3 class="inicioSesion">Inicio Sesion</h3>
             <input class="input" type="text" placeholder="Ingrese correo" id="correoLogin">
