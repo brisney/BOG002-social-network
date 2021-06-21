@@ -68,24 +68,22 @@ export function postEvento() {
             post.id = doc.id;
             console.log(post); // por consola que datos tiene cada post
             postContainer.innerHTML += /*html*/ `
-      
-      <div>
+        <div>
         <div class="post">
         ${post.title}
-        <br> 
+        <br>
         ${post.description}
         </div>
         <div class="box-btn">
         <button id="btnBorrar"class="btn-Borrar" data-id="${post.id}">Borrar</button>
-        
         <button id="btnEditar"class="btn-Editar" data-id="${post.id}">Editar</button>
         <button class="like__btn">
         <span id="icon"><i class="far fa-heart"></i></span>
         <span id="count">0</span> Likes
         </button>
         </div>
-      </div>
-      `;
+    </div>
+    `;
 
             const botonBorrar = document.querySelectorAll('.btn-Borrar');
             botonBorrar.forEach((btn) => {
@@ -100,26 +98,22 @@ export function postEvento() {
             });
 
             //BOTON LIKES
-            let likeBtn = document.querySelectorAll('.like__btn');
-            likeBtn.forEach((btn) => {
-                btn.addEventListener('click', async e => {
+            const likeBtn = document.querySelectorAll(`.like__btn-${doc.id}`);
+            let likeIcon = document.querySelectorAll(`#icon-${doc.id}`);
+            let count = document.querySelector('#count');
+            //         let clicked = false;
 
-                    let likeIcon = document.querySelectorAll('#icon');
-                    let count = document.querySelector('#count');
-                    let clicked = false;
-
-                    if (!clicked) {
-                        clicked = true;
-                        likeIcon.innerHTML = `<i class="fas fa-heart"></i>`;
-                        count.textContent++;
-                    } else {
-                        clicked = false;
-                        likeIcon.innerHTML = `<i class="far fa-heart"></i>`;
-                        count.textContent--;
-                    }
-                })
-            })
-
+            //         if (!clicked) {
+            //             clicked = true;
+            //             likeIcon.innerHTML = `<i class="fas fa-heart"></i>`;
+            //             count.textContent++;
+            //         } else {
+            //             clicked = false;
+            //             likeIcon.innerHTML = `<i class="far fa-heart"></i>`;
+            //             count.textContent--;
+            //         }
+            //     })
+            // })
 
             //BOTON EDITAR
 

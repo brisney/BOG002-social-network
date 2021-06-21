@@ -26,19 +26,30 @@ export const loginUsuario = (correo, contrasena) => {
             window.location.hash = '#/post';
             // Signed in
             console.log('Usuario logueado', userCredential.user);
-            // ...
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Te has Logueado con éxito',
+                showConfirmButton: false,
+                timer: 2500
+            })
         })
         .catch((error) => {
-            console.log('ups ha ocurrido un error', error.message);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No estas registrado',
+                footer: '<a href="#/Registro">¿Deseas Registrarte?</a>'
+            })
         });
 };
 // observador de estado de autenticación y obtén datos del usuario
 export const verificarUsuario = () => {
     firebase.auth().onAuthStateChanged(user => {
-        if(user){
-            console.log('si existe usuario',user)
-            // window.location.hash = '#/login';
-        }else {
+        if (user) {
+            console.log('si existe usuario', user)
+                // window.location.hash = '#/login';
+        } else {
             console.log('Ojo usuario no existe');
         }
     })
@@ -51,9 +62,9 @@ export const logoutUsuario = () => {
         .then(() => {
             console.log('Sesion Cerrada');
         })
-        .catch((error) => {
-            console.log('ups ha ocurrido un error', error.message);
-        });
+        .catch((err) => {
+            console.log('object')
+        })
 };
 
 // logeandonos con google
@@ -69,7 +80,12 @@ export function loginGoogle() {
                 window.location.hash = '#/post';
             })
             .catch((err) => {
-                console.log(err);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    footer: '<a href="">Why do I have this issue?</a>'
+                })
             });
     });
 }
@@ -85,10 +101,17 @@ export function loginFacebook() {
                 console.log(result);
                 window.location.hash = '#/post';
             })
-            .catch((err) => {
-                console.log(err);
-            })
     })
+}
+
+export function likesPost(idLike, count) {
+    const likeUser = db.collection('likes').doc()
+    return likeUser.update({
+            likes: count,
+        })
+        .then(() => {
+
+        }).catch((error) => error);
 }
 
 

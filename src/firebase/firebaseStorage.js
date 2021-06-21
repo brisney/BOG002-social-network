@@ -2,11 +2,12 @@
 
 const db = firebase.firestore();
 
-export const savePost = (title, description) => {
-  db.collection('Publicaciones').doc().set({
-    title,
-    description,
-  });
+export const savePost = (title, description, likes) => {
+    db.collection('Publicaciones').doc().set({
+        title,
+        description,
+        likes,
+    });
 };
 
 // funcion que trae todas las publicaciones de una collection
