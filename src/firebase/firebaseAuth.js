@@ -8,11 +8,21 @@ export const registroUsuario = (correo, contrasena) => {
         .then((userCredential) => {
             // Signed in
             console.log('Usuario registrado', userCredential.user);
-            // ...
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Te has Registrado con éxito',
+                showConfirmButton: false,
+                timer: 2500
+            })
         })
         .catch((error) => {
-            console.log('error', error.message);
-            // ..
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Usuario ya registrado pruebe con otro',
+                footer: '<a href="#/login">¿Deseas Iniciar Sesión?</a>'
+            })
         });
 };
 
