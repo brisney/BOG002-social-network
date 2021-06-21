@@ -1,8 +1,8 @@
 /* estilos para el body */
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     outline: 0;
@@ -104,8 +104,9 @@
 }
 
 .centrado {
-    margin-top: 33px;
+    margin-top: 18px;
     font-size: 15px;
+    margin-left: 124px;
 }
 
 
@@ -181,6 +182,7 @@ h2 {
 .centrado2 {
     margin-top: 33px;
     font-size: 15px;
+    margin-left: 124px;
 }
 
 @media (max-width: 480px) {
@@ -245,6 +247,12 @@ h2 {
         cursor: pointer;
         border-radius: 50px;
     }
+    .centrado2 {
+        margin-left: 70px;
+    }
+    .centrado {
+        margin-left: 70px;
+    }
 }
 
 @media (max-width: 460px) {
@@ -307,6 +315,12 @@ h2 {
         cursor: pointer;
         border-radius: 50px;
     }
+    .centrado2 {
+        margin-left: 50px;
+    }
+    .centrado {
+        margin-left: 50px;
+    }
 }
 
 
@@ -334,12 +348,14 @@ h2 {
     margin-bottom: .5rempx;
     color: rgb(223, 12, 12);
     font-size: 55px;
-    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700px;
 }
 
 .marvel-title {
     font-size: 35px;
     margin-bottom: 40px;
+    font-family: 'Lato', sans-serif;
 }
 
 .home__name {
@@ -353,7 +369,13 @@ h2 {
 }
 
 .image {
-    height: 50px;
+    height: 380px;
+    width: 350px;
+    margin-left: 50px;
+}
+
+.paragraph {
+    font-family: 'Lato', sans-serif;
 }
 
 
@@ -466,6 +488,3 @@ h2 {
     border: none;
     cursor: pointer;
 }
-
-
-/* Estilos de el header */

@@ -26,6 +26,30 @@ export const registroUsuario = (correo, contrasena) => {
         });
 };
 
+export const registerUserGmail = () => {
+    firebase.auth()
+        .createUserWithEmailAndPassword(correo, contrasena)
+        .then((userCredential) => {
+            // Signed in
+            console.log('Usuario registrado', userCredential.user);
+            Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Te has Registrado con éxito',
+                    showConfirmButton: false,
+                    timer: 2500
+                })
+                .catch((error) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Usuario ya registrado pruebe con otro',
+                        footer: '<a href="#/login">¿Deseas Iniciar Sesión?</a>'
+                    })
+                });
+        })
+}
+
 // Login con email
 export const loginUsuario = (correo, contrasena) => {
     console.log(correo, contrasena);
@@ -43,6 +67,7 @@ export const loginUsuario = (correo, contrasena) => {
                 showConfirmButton: false,
                 timer: 2500
             })
+            return userCredential;
         })
         .catch((error) => {
             Swal.fire({
@@ -86,15 +111,22 @@ export function loginGoogle() {
             .auth()
             .signInWithPopup(provider)
             .then((result) => {
-                console.log(result);
                 window.location.hash = '#/post';
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Te has Logueado con éxito',
+                    showConfirmButton: false,
+                    timer: 2500
+                })
+                return result;
             })
             .catch((err) => {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href="">Why do I have this issue?</a>'
+                    text: 'No estas registrado',
+                    footer: '<a href="#/Registro">¿Deseas Registrarte?</a>'
                 })
             });
     });
@@ -107,9 +139,22 @@ export function loginFacebook() {
         e.preventDefault();
         const provider = new firebase.auth.FacebookAuthProvider();
         firebase.auth().signInWithPopup(provider)
-            .then((result) => {
-                console.log(result);
+            .then(() => {
                 window.location.hash = '#/post';
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Te has Logueado con éxito',
+                    showConfirmButton: false,
+                    timer: 2500
+                }).catch((err) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No estas registrado',
+                        footer: '<a href="#/Registro">¿Deseas Registrarte?</a>'
+                    })
+                });
             })
     })
 }

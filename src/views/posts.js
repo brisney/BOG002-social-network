@@ -100,6 +100,7 @@ export function postEvento() {
             //BOTON LIKES
             const likeBtn = document.querySelectorAll(`.like__btn-${doc.id}`);
             let likeIcon = document.querySelectorAll(`#icon-${doc.id}`);
+            likeIcon.style.display = 'none';
             let count = document.querySelector('#count');
             //         let clicked = false;
 
