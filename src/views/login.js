@@ -1,9 +1,7 @@
 import { loginUser } from '../firebase/firebaseAuth.js';
 
 export function viewsLogin() {
-    const viewsLogin =  /*html*/ `
-   
-
+    const viewsLogin = /*html*/ `
         <form id="formLogin" class="form">
             <h3 class="inicioSesion">Inicio Sesion</h3>
             <input class="input" type="text" placeholder="Ingrese correo" id="emailLogin">
@@ -12,10 +10,9 @@ export function viewsLogin() {
             <p class="textoO">O</p>
             <button class="buttonGoogle" id="googleLogin"><span><i class="fab fa-google"></i></span>Ingresar con Google</button>
             <button class="buttonFacebook blue" id="facebookLogin"><span><i class="fab fa-facebook"></i></span>Ingresar con Facebook</button>
-            <p class="centrado">¿Quieres ser miembro?<a href="#/Registro">Regístrate</a></p>
+            <p class="centrado">¿Quieres ser miembro?<a href="#/Register">Regístrate</a></p>
         </form>
     `;
-
     const elementLogin = document.createElement('div');
     elementLogin.innerHTML = viewsLogin;
     return elementLogin;

@@ -14,14 +14,14 @@ const router = (route) => {
     firebase.auth().onAuthStateChanged(() => {
         const user = firebase.auth().currentUser;
         // let email;
-        if(user){
+        if (user) {
             // name = user.displayName;
             // email = user.email;
-            console.log('Hay un usuario logueado',user)
-            // console.log(email)
-            // window.location.hash = '#/login';
-            // postEvento()
-        }else {
+            console.log('Hay un usuario logueado', user)
+                // console.log(email)
+                // window.location.hash = '#/login';
+                // postEvento()
+        } else {
             console.log('No hay usuario logueado');
             // loginEvento()
         }
@@ -35,7 +35,7 @@ const router = (route) => {
             content.appendChild(viewsHome());
             logoutEvent();
             break;
-        case '#/Registro':
+        case '#/Register':
             content.appendChild(viewsRegister());
             registerEvent();
             break;
@@ -47,7 +47,7 @@ const router = (route) => {
             logoutEvent();
             break;
         case '#/Logout':
-            content.appendChild(viewsHome()); 
+            content.appendChild(viewsHome());
             logoutEvent();
             break;
         case '#/post':
