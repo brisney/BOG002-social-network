@@ -68,8 +68,8 @@ export function postEvent() {
             post.id = doc.id;
             console.log(post); // por consola que datos tiene cada post
             postContainer.innerHTML += /*html*/ `
-      
-      <div>
+
+    <div>
         <div class="post">
         ${post.title}
         <br> 
