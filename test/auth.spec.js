@@ -47,18 +47,22 @@ describe('Login con google', () => {
     expect(typeof loginGoogle).toBe('function');
   });
 
-  it.only('deberia loguearme con Gmail', () => {
-    const promesa = loginGoogle()
-    return promesa
-      .then((result) => {
-        expect(typeof result).toEqual('object');
+  it('deberia loguearme con Gmail', () => {
+    return loginGoogle().then((result) => {
+      expect(result.providerData).toEqual({providerId :"google.com"});
+    })
+
+    // const promesa = loginGoogle()
+    // return promesa
+    //   .then((result) => {
+    //     expect(typeof result).toBe(object);
       })
   })
-});
+// });
 
 describe('Login con facebook', () => {
   it('debería ser una función', () => {
-    expect(typeof loginGoogle).toBe('function');
+    expect(typeof loginFacebook).toBe('function');
   });
 
   it('deberia loguearme con facebook', () => {

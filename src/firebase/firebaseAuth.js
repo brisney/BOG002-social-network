@@ -60,8 +60,8 @@ export const logoutUsuario = () => {
 
 // logeandonos con google
 export function loginGoogle() {
-    const googleButton = document.getElementById('googleLogin');
-    googleButton.addEventListener('click', () => {
+    // const googleButton = document.getElementById('googleLogin');
+    // googleButton.addEventListener('click', () => {
         let provider = new firebase.auth.GoogleAuthProvider();
         return firebase
             .auth()
@@ -73,7 +73,7 @@ export function loginGoogle() {
             .catch((err) => {
                 console.log(err);
             });
-    });
+    // });
 }
 
 // logeamos con Facebook

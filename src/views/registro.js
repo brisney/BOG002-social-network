@@ -25,10 +25,10 @@ export function registroEvento() {
         registroUsuario(correo.trim(), contrasena.trim());
     });
 }
-// export function EventRegisterLogin() {
-//     const googleButton = document.getElementById('googleLogin');
-//       console.log("fuera del contenedor")
-//       googleButton.addEventListener('click', loginGoogle())
+export function EventRegisterLogin() {
+    const googleButton = document.getElementById('googleLogin');
+      console.log("fuera del contenedor")
+      googleButton.addEventListener('click', loginGoogle())
     
-//     //   return formuarioRegistro;
-//     }
+    //   return formuarioRegistro;
+    }
