@@ -29,5 +29,5 @@ export function loginEvent() {
         event.preventDefault();
         loginUser(emailLogin.trim(), passwordLogin.trim());
     });
-    console.log(firebase);
+    // console.log(firebase);
 }

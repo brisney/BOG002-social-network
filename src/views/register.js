@@ -4,6 +4,7 @@ export function viewsRegister() {
     const viewRegistro =  /*html*/ `
     <form class="form" id="formRegister">
         <h2 class="crearCuenta">Crear Cuenta</h2>
+        <input class="input" type="text" placeholder="Ingresa un nombre de usuario" id="nickname">
         <input class="input" type="text" placeholder="Ingresa un correo válido" id="email">
         <input class="input" type="password" placeholder="Crea una Contraseña" id="password">
         <button class="buttonRegistrar">Registrar</button>
@@ -21,7 +22,8 @@ export function registerEvent() {
     formRegister.addEventListener('submit', (event) => {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
+        const nickname = document.getElementById('nickname').value
         event.preventDefault();
-        userRegister(email.trim(), password.trim());
+        userRegister(email.trim(), password.trim(), nickname.trim());
     });
 }

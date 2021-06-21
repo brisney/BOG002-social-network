@@ -11,9 +11,14 @@ const content = document.getElementById('root');
 const router = (route) => {
     content.innerHTML = '';
     // observador de estado de autenticación y obtén datos del usuario
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(() => {
+        const user = firebase.auth().currentUser;
+        // let email;
         if(user){
-            console.log('si existe usuario',user)
+            // name = user.displayName;
+            // email = user.email;
+            console.log('Hay un usuario logueado',user)
+            // console.log(email)
             // window.location.hash = '#/login';
             // postEvento()
         }else {
@@ -39,6 +44,7 @@ const router = (route) => {
             loginEvent();
             loginGoogle();
             loginFacebook();
+            logoutEvent();
             break;
         case '#/Logout':
             content.appendChild(viewsHome()); 
