@@ -52,7 +52,7 @@ export const registerUserGmail = () => {
 // Login con email
 export const loginUser = (email, password) => {
     console.log(email, password);
-    firebase
+    return firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
