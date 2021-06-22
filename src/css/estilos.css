@@ -403,7 +403,7 @@ h2 {
 }
 
 
-/* Estilos para el post */
+/* ========================Estilos para el post=============================================== */
 
 .card {
     width: 300px;
@@ -440,6 +440,103 @@ h2 {
     color: cornsilk;
 }
 
+.newFeeds {
+    margin-left: 20px;
+    margin-top: 10px;
+    border: 1px solid black;
+    width: 325px;
+    border-radius: 5px;
+    background-image: linear-gradient( 109.6deg, rgba(62, 161, 219, 1) 11.2%, rgba(93, 52, 236, 1) 100.2%);
+}
+
+.compu {
+    width: 70px;
+}
+
+.news {
+    color: white;
+    font-family: 'Lato', sans-serif;
+    align-items: center;
+    font-weight: bold;
+}
+
+.box-btn {
+    width: 720px;
+}
+
+
+/* =======================MEDIA QUERIES PARA LOS POST======================= */
+
+@media screen and (min-width: 768px) {
+    .form-control {
+        width: 580px;
+        margin-left: 60px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+    .form-control2 {
+        width: 580px;
+        margin-left: 60px;
+        margin-top: 2px;
+        height: 60px;
+    }
+    .newFeeds {
+        margin-left: 20px;
+        margin-top: 10px;
+        border: 1px solid black;
+        width: 720px;
+        border-radius: 5px;
+        background-image: linear-gradient( 109.6deg, rgba(62, 161, 219, 1) 11.2%, rgba(93, 52, 236, 1) 100.2%);
+        font-size: 28px;
+    }
+    .compu {
+        width: 90px;
+    }
+    .btn-guardar {
+        display: inline-block;
+        background: rgb(175, 107, 221);
+        color: cornsilk;
+        margin-left: 190px;
+    }
+    .box-inputs {
+        margin-left: 180px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .form-control {
+        width: 780px;
+        margin-left: 100px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+    .form-control2 {
+        width: 780px;
+        margin-left: 100px;
+        margin-top: 2px;
+        height: 60px;
+    }
+    .newFeeds {
+        margin-left: 20px;
+        margin-top: 10px;
+        width: 950px;
+        height: 150px;
+        font-size: 28px;
+    }
+    .compu {
+        width: 120px;
+    }
+    .btn-guardar {
+        display: inline-block;
+        background: rgb(175, 107, 221);
+        color: cornsilk;
+        margin-left: 190px;
+    }
+    .box-inputs {
+        margin-left: 180px;
+    }
+}
+
 
 /*-------------- ESTILOS DE LOS POST EDITAR Y BORRAR--------------------- */
 
@@ -463,6 +560,7 @@ h2 {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     padding-left: 10px;
+    box-shadow: 21px 17px 24px 4px rgba(211, 206, 206, 0.72);
 }
 
 .btn-Editar,

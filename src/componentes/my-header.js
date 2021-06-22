@@ -1,6 +1,6 @@
 class myHeader extends HTMLElement {
-    constructor() {
-            super();
+    constructor() { //es un metodo especial para crear e inicializar un objeto creado a partir de una clase
+            super(); //hereda
             //console.log('hola mundo')
 
         }
@@ -20,7 +20,7 @@ class myHeader extends HTMLElement {
             <i class="fas fa-bars"></i>
         </span>
     </nav>
-    ${this.getStyle()}
+    ${this.getStyle()} //getStyle Devuelve el estilo
 `;
         return template
     }
@@ -160,8 +160,8 @@ class myHeader extends HTMLElement {
         //nos mostrara solo el nav
         this.appendChild(this.getTemplate().content.cloneNode(true));
     }
-    connectedCallback() {
-        this.render();
+    connectedCallback() { //se invoca cada vez que el elemento se añade a un documento
+        this.render(); //técnica para compartir código entre componentes
     }
 }
 

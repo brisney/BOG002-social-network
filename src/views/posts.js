@@ -2,6 +2,12 @@ import { savePost, getPost, onGetPost, deletePost, getPostbyId, updatePost } fro
 
 export function viewsPost() {
     const viewsPost = /*html*/ `
+    <div class="newFeeds">
+        <div>
+            <img class="compu" src="./assest/descarga.png" alt="imagen de un compu con emoticones"/>
+            <span class="news">NEWSFEED</span>
+        </div>
+    </div>
     <div class="card">
         <form id="form-Post" class="form-Post">
         <div class="form-group">
@@ -38,7 +44,7 @@ export function postEvent() {
         const title = document.getElementById('post-Title');
         const description = document.getElementById('post-Description');
         if (!editStatus) {
-            await savePost(title.value, description.value);
+            await savePost(title.value, description.value); //await espera o aguardar
         } else {
             await updatePost(id, {
                 title: title.value,
@@ -69,7 +75,7 @@ export function postEvent() {
             console.log(post); // por consola que datos tiene cada post
             postContainer.innerHTML += /*html*/ `
 
-    <div>
+    <div class="box-inputs">
         <div class="post">
         ${post.title}
         <br>
@@ -99,10 +105,10 @@ export function postEvent() {
             });
 
             //BOTON LIKES
-            const likeBtn = document.querySelectorAll(`.like__btn-${doc.id}`);
-            let likeIcon = document.querySelectorAll(`#icon-${doc.id}`);
-            likeIcon.style.display = 'none';
-            let count = document.querySelector('#count');
+            // const likeBtn = document.querySelectorAll(`.like__btn-${doc.id}`);
+            // let likeIcon = document.querySelectorAll(`#icon-${doc.id}`);
+            // likeIcon.style.display = 'none';
+            // let count = document.querySelector('#count');
             //         let clicked = false;
 
             //         if (!clicked) {
@@ -139,6 +145,4 @@ export function postEvent() {
             })
         });
     });
-    // });
-
-}
+};

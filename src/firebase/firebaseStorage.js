@@ -2,11 +2,10 @@
 
 const db = firebase.firestore();
 
-export const savePost = (title, description, likes) => {
+export const savePost = (title, description) => {
     db.collection('Publicaciones').doc().set({
         title,
         description,
-        likes,
     });
 };
 

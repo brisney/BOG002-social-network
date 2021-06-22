@@ -1,7 +1,7 @@
 import { userRegister } from '../firebase/firebaseAuth.js';
 
 export function viewsRegister() {
-    const viewRegistro =  /*html*/ `
+    const viewRegistro = /*html*/ `
     <form class="form" id="formRegister">
         <h2 class="crearCuenta">Crear Cuenta</h2>
         <input class="input" type="text" placeholder="Ingresa un nombre de usuario" id="nickname">
@@ -22,7 +22,8 @@ export function registerEvent() {
     formRegister.addEventListener('submit', (event) => {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        const nickname = document.getElementById('nickname').value
+        const nickname = document.getElementById('nickname').value;
+        reset();
         event.preventDefault();
         userRegister(email.trim(), password.trim(), nickname.trim());
     });

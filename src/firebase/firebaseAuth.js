@@ -97,7 +97,11 @@ export const logoutUser = () => {
             console.log('Sesion Cerrada');
         })
         .catch((err) => {
-            console.log('object')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No se pudo cerrar sesión'
+            })
         })
 };
 
@@ -136,7 +140,7 @@ export function loginFacebook() {
     const facebookButton = document.getElementById('facebookLogin');
     facebookButton.addEventListener('click', (e) => {
         e.preventDefault();
-        const provider = new firebase.auth.FacebookAuthProvider();
+        const provider = new firebase.auth.FacebookAuthProvider(); //Provider es proveedor
         firebase.auth().signInWithPopup(provider)
             .then(() => {
                 window.location.hash = '#/post';
