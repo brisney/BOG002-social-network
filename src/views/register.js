@@ -23,7 +23,7 @@ export function registerEvent() {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const nickname = document.getElementById('nickname').value;
-        reset();
+        // reset();
         event.preventDefault();
         userRegister(email.trim(), password.trim(), nickname.trim());
     });

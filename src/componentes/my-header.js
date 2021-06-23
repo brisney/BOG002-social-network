@@ -20,7 +20,7 @@ class myHeader extends HTMLElement {
             <i class="fas fa-bars"></i>
         </span>
     </nav>
-    ${this.getStyle()} //getStyle Devuelve el estilo
+    ${this.getStyle()} 
 `;
         return template
     }
